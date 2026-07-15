@@ -96,7 +96,7 @@
     letter-spacing:-0.01em;
   }
   .brand em{ color:var(--brass-light); font-style:normal; }
-  .navlinks{ display:flex; gap:36px; font-size:14.5px; color:var(--text-dark-muted); }
+  .navlinks{ display:flex; gap:26px; font-size:14px; color:var(--text-dark-muted); }
   .navlinks a{ text-decoration:none; transition:color .15s; }
   .navlinks a:hover{ color:var(--text-dark); }
   .btn{
@@ -346,6 +346,77 @@
   }
   footer .wrap{ display:flex; justify-content:space-between; }
 
+  /* ---------- features / benefits ---------- */
+  .features h2{ font-size:36px; color:var(--text-dark); max-width:600px; }
+  .features .lede{ color:var(--text-dark-muted); margin-top:16px; max-width:600px; font-size:16.5px; }
+  .tier-grid{
+    margin-top:52px;
+    display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  }
+  .tier-card{
+    background:var(--ink-2);
+    border:1px solid var(--ink-soft);
+    border-radius:4px;
+    padding:32px 34px;
+  }
+  .tier-card.reliable{ border-color:#3E6B4F; }
+  .tier-card .tier-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.08em;
+    text-transform:uppercase; margin-bottom:16px; display:inline-block;
+  }
+  .tier-card.reliable .tier-tag{ color:#7FB894; }
+  .tier-card.soft .tier-tag{ color:var(--brass-light); }
+  .tier-card h3{ font-size:20px; color:var(--text-dark); }
+  .tier-list{ list-style:none; padding:0; margin:20px 0 0; }
+  .tier-list li{
+    padding:11px 0; border-top:1px dashed var(--ink-soft);
+    font-size:14.5px; color:var(--text-dark-muted);
+    display:flex; gap:10px;
+  }
+  .tier-card.reliable .tier-list li::before{ content:"✓"; color:#7FB894; flex-shrink:0; }
+  .tier-card.soft .tier-list li::before{ content:"~"; color:var(--brass-light); flex-shrink:0; }
+  .tier-note{ margin-top:18px; font-size:13px; color:var(--text-dark-muted); font-style:italic; }
+
+  .benefit-row{
+    margin-top:24px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .benefit-card{ padding:26px 6px 0; }
+  .benefit-card .bi{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--brass);
+    display:block; margin-bottom:10px;
+  }
+  .benefit-card h3{ font-size:18px; color:var(--text-dark); }
+  .benefit-card p{ color:var(--text-dark-muted); font-size:14px; margin:8px 0 0; }
+
+  /* ---------- process timeline ---------- */
+  .process{ background:var(--ink-2); border-top:1px solid var(--ink-soft); border-bottom:1px solid var(--ink-soft); }
+  .process h2{ font-size:36px; color:var(--text-dark); max-width:560px; }
+  .process .lede{ color:var(--text-dark-muted); margin-top:16px; max-width:560px; font-size:16.5px; }
+  .timeline{ margin-top:52px; }
+  .tl-item{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:28px;
+    padding:24px 0;
+    border-top:1px solid var(--ink-soft);
+  }
+  .tl-item:last-child{ border-bottom:1px solid var(--ink-soft); }
+  .tl-item .tl-when{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--brass-light);
+    padding-top:4px;
+  }
+  .tl-item h3{ font-size:19px; color:var(--text-dark); }
+  .tl-item p{ color:var(--text-dark-muted); font-size:14.5px; margin:8px 0 0; max-width:520px; }
+
+  /* ---------- FAQ ---------- */
+  .faq h2{ font-size:36px; color:var(--text-dark); text-align:center; }
+  .faq-list{ margin-top:52px; max-width:760px; margin-left:auto; margin-right:auto; }
+  .faq-item{ padding:24px 0; border-top:1px solid var(--ink-soft); }
+  .faq-item:last-child{ border-bottom:1px solid var(--ink-soft); }
+  .faq-item h3{ font-size:17.5px; color:var(--text-dark); font-family:'Inter',sans-serif; font-weight:600; }
+  .faq-item p{ color:var(--text-dark-muted); font-size:14.5px; margin:10px 0 0; line-height:1.6; }
+
   @media (max-width:860px){
     .hero .wrap{ grid-template-columns:1fr; }
     .ticket-stage{ margin-top:40px; }
@@ -357,6 +428,9 @@
     .menu-grid{ grid-template-columns:1fr; }
     .hero h1{ font-size:38px; }
     .navlinks{ display:none; }
+    .tier-grid{ grid-template-columns:1fr; }
+    .benefit-row{ grid-template-columns:1fr; }
+    .tl-item{ grid-template-columns:1fr; gap:6px; }
   }
 </style>
 </head>
@@ -367,8 +441,10 @@
     <div class="brand">Osma <em>Soba</em></div>
     <div class="navlinks">
       <a href="#kako">Kako radi</a>
-      <a href="#primer">Primer</a>
+      <a href="#dobijate">Šta dobijate</a>
+      <a href="#proces">Proces</a>
       <a href="#cena">Cena</a>
+      <a href="#pitanja">Pitanja</a>
     </div>
     <a href="#kontakt" class="btn btn-brass">Zakaži razgovor</a>
   </div>
@@ -456,6 +532,56 @@
   </div>
 </section>
 
+<section class="features" id="dobijate">
+  <div class="wrap">
+    <div class="eyebrow">Šta dobijate</div>
+    <h2>Pošteno podeljeno — ono što možemo da tvrdimo, i ono što je procena</h2>
+    <p class="lede">Atribucija nikad nije savršena. Radije vam kažemo gde je granica nego da prodamo nešto što ne možemo da isporučimo.</p>
+
+    <div class="tier-grid">
+      <div class="tier-card reliable">
+        <span class="tier-tag">Pouzdani podaci</span>
+        <h3>Ovo tvrdimo sa sigurnošću</h3>
+        <ul class="tier-list">
+          <li>Rezervacije po izvoru — kanal i kampanja</li>
+          <li>Status: confirmed / seated / no-show / cancelled</li>
+          <li>Cena po realizovanoj (seated) rezervaciji</li>
+          <li>Broj gostiju po realizovanoj rezervaciji</li>
+        </ul>
+      </div>
+      <div class="tier-card soft">
+        <span class="tier-tag">Manje pouzdano — procena</span>
+        <h3>Dodatna vrednost, ne glavno obećanje</h3>
+        <ul class="tier-list">
+          <li>Repeat guest rate (povratak gosta)</li>
+          <li>First-touch izvor kad gost dođe preko više kanala</li>
+          <li>Povezivanje istog gosta preko različitih uređaja</li>
+          <li>Telefonske rezervacije sa prethodnim digitalnim kontaktom</li>
+        </ul>
+        <p class="tier-note">Gost može kliknuti oglas danas, a rezervisati za tri dana sa drugog telefona — to ostaje slepa tačka za svakoga, ne samo za nas.</p>
+      </div>
+    </div>
+
+    <div class="benefit-row">
+      <div class="benefit-card">
+        <span class="bi">→ budžet</span>
+        <h3>Manje trošenja u prazno</h3>
+        <p>Vidite tačno koji kanal donosi goste koji dolaze, ne samo klikove — i preusmeravate budžet pre nego što ga potrošite.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="bi">→ kampanje</span>
+        <h3>Google uči sam</h3>
+        <p>Offline conversion import vraća signal "seated" nazad u Ads — kampanja se optimizuje ka gostima koji ostaju, ne ka klikovima.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="bi">→ operativa</span>
+        <h3>Bez menjanja sistema</h3>
+        <p>Radi pored vašeg postojećeg booking sistema. Osoblje ne uči novi alat, ne duplira unos ako već imate status u svom sistemu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="insight" id="primer">
   <div class="wrap">
     <div>
@@ -470,6 +596,52 @@
       <div class="ex-row"><span class="chan">Google Business (organik)</span><span class="stat">41 rez. → <span class="good">38 seated</span></span></div>
       <div class="ex-row"><span class="chan">Direktno / telefon</span><span class="stat">19 rez. → <span class="good">17 seated</span></span></div>
       <p class="note">"General Search ima manji obim ali bolji seated rate od Instagrama — vredi preusmeriti deo budžeta."</p>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="proces">
+  <div class="wrap">
+    <div class="eyebrow">Proces</div>
+    <h2>Šta se tačno dešava tokom pilota</h2>
+    <p class="lede">30–60 dana, jedna lokacija. Nema iznenađenja — evo tačno šta rade koje strane, i kada.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-when">Dan 1–3</div>
+        <div>
+          <h3>Provera i setup</h3>
+          <p>Proveravamo vaš booking sistem — da li čuva UTM podatke, da li ima export statusa. Postavljamo posebne linkove po kanalu i GCLID/FBCLID tracking.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Dan 3–5</div>
+        <div>
+          <h3>Status praćenje</h3>
+          <p>Ako vaš sistem već ima seated/no-show, povezujemo se na export — bez duplog unosa za osoblje. Ako nema, postavljamo formu od dva klika.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Nedelja 2</div>
+        <div>
+          <h3>Prvi podaci, offline conversion import</h3>
+          <p>Počinjemo da vraćamo "seated" signal nazad u Google Ads — kampanja dobija prve realne podatke o tome ko se stvarno pojavio.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Svake nedelje</div>
+        <div>
+          <h3>Izveštaj sa zaključkom</h3>
+          <p>Ne samo brojevi — jedan jasan zaključak, npr. koji kanal ima bolji seated rate i zaslužuje veći budžet.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Dan 30–60</div>
+        <div>
+          <h3>Odluka</h3>
+          <p>Zajedno gledamo rezultat: da li ste promenili budžet na osnovu podataka, i da li ima smisla da nastavimo. Bez dugoročnog ugovora, otkazivanje bilo kad.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -514,6 +686,39 @@
       <p>Ako ste agencija sa hospitality klijentima, ovo se uvodi na više lokacija odjednom — jedan proces, više naloga.</p>
     </div>
     <a href="#kontakt" class="btn btn-ghost">Razgovarajmo</a>
+  </div>
+</section>
+
+<section class="faq" id="pitanja">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">Pitanja</div>
+    <h2>Pre nego što pitate</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Da li moramo da menjamo booking sistem?</h3>
+        <p>Ne. Radimo pored SevenRooms-a, Bookio-a, Ontopo-a ili sopstvenog formulara na sajtu. Ne tražimo da menjate kako primate rezervacije.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Da li je ovo softver ili usluga koju vi vodite?</h3>
+        <p>Managed usluga — kombinacija automatizovanog trackinga i ručno kontrolisanih koraka radi tačnosti podataka. Vi dobijate nedeljni izveštaj i preporuke, ne dashboard koji morate sami da tumačite.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Koliko dodatnog posla ovo traži od mog osoblja?</h3>
+        <p>Ako vaš postojeći sistem već beleži seated/no-show, gotovo ništa — povlačimo iz exporta. Ako nema, samo forma od dva klika po rezervaciji, bez slobodnog unosa.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Šta ako nemam veliki budžet na oglasima?</h3>
+        <p>Bitniji je odnos broja rezervacija i marketing potrošnje nego apsolutan iznos — restoran sa 150+ rezervacija i skromnijim budžetom može biti bolji kandidat od onog koji troši više, ali nema organizovan booking flow. Popričajmo, pa procenimo zajedno.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Šta je sa podacima gostiju — GDPR/zaštita podataka?</h3>
+        <p>Pre prve isporuke rešavamo osnovni ugovor koji pokriva ko je rukovalac, a ko obrađivač podataka, svrhu obrade, rok čuvanja i pristup/brisanje na zahtev. Kontakt podaci gostiju se ne dele dalje bez osnova.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Koliko traje pilot i da li se vezujem ugovorom?</h3>
+        <p>30–60 dana, jedna lokacija. Bez dugoročnog ugovora — otkazivanje je moguće u svakom trenutku.</p>
+      </div>
+    </div>
   </div>
 </section>
 
